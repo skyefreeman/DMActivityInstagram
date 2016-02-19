@@ -19,9 +19,8 @@
 }
 
 - (UIImage *)activityImage {
-    return [UIImage imageNamed:@"instagram.png" inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil];
+    return [UIImage imageNamed:@"instagram" inBundle:[NSBundle bundleForClass:[DMActivityInstagram class]] compatibleWithTraitCollection:nil];
 }
-
 
 - (BOOL)canPerformWithActivityItems:(NSArray *)activityItems {
     

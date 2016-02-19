@@ -26,7 +26,6 @@
     
     self.inputImage = exportImage;
     
-    
     return self;
 }
 
