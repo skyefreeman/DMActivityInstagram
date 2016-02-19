@@ -18,7 +18,7 @@
 @implementation DMResizerViewController
 
 -(id)initWithImage:(UIImage *)imageObject andDelegate:(id<DMResizerDelegate>)delegate {
-    if (!(self = [super initWithNibName:@"DMResizerViewController" bundle:[NSBundle bundleForClass:self.class]])) return nil;
+    if (!(self = [super initWithNibName:@"DMResizerViewController" bundle:[NSBundle bundleForClass:[DMResizerViewController class]]])) return nil;
     
     self.delegate = delegate;
     
