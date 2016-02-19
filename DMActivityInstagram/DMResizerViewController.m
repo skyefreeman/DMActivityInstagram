@@ -91,12 +91,7 @@
     return self.imageView;
 }
 
-
 -(IBAction)doneButtonAction {
-    NSAssert([self.delegate conformsToProtocol:@protocol(DMResizerDelegate)], @"Bad delegate %@", self.delegate);
-    [self.delegate resizer:self finishedResizingWithResult:self.imageView.image];
-    return;
-    
     // draw the image into a new image.
     
     CGFloat screenScale = [[UIScreen mainScreen] scale];
@@ -158,8 +153,8 @@
 
     // newImage is the result.
 
-//    NSAssert([self.delegate conformsToProtocol:@protocol(DMResizerDelegate)], @"Bad delegate %@", self.delegate);
-//    [self.delegate resizer:self finishedResizingWithResult:newImage];
+    NSAssert([self.delegate conformsToProtocol:@protocol(DMResizerDelegate)], @"Bad delegate %@", self.delegate);
+    [self.delegate resizer:self finishedResizingWithResult:newImage];
 }
 
 - (void)scrollViewDidZoom:(UIScrollView *)aScrollView {
