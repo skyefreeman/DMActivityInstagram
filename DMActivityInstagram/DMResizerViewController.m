@@ -22,9 +22,9 @@
     
     self.delegate = delegate;
     
-    UIImage *exportImage = [UIImage imageWithCGImage:imageObject.CGImage scale:imageObject.scale orientation:UIImageOrientationUp];
+//    UIImage *exportImage = [UIImage imageWithCGImage:imageObject.CGImage scale:imageObject.scale orientation:UIImageOrientationUp];
     
-    self.inputImage = exportImage;
+    self.inputImage = imageObject;
     
     return self;
 }
@@ -51,7 +51,6 @@
    
     self.colorPicker.delegate = self; 
     self.colorPicker.colors = [self.delegate backgroundColors];
-    
     
     self.navigationController.navigationBarHidden = YES;
     
@@ -94,6 +93,10 @@
 
 
 -(IBAction)doneButtonAction {
+    NSAssert([self.delegate conformsToProtocol:@protocol(DMResizerDelegate)], @"Bad delegate %@", self.delegate);
+    [self.delegate resizer:self finishedResizingWithResult:self.imageView.image];
+    return;
+    
     // draw the image into a new image.
     
     CGFloat screenScale = [[UIScreen mainScreen] scale];
@@ -155,8 +158,8 @@
 
     // newImage is the result.
 
-    NSAssert([self.delegate conformsToProtocol:@protocol(DMResizerDelegate)], @"Bad delegate %@", self.delegate);
-    [self.delegate resizer:self finishedResizingWithResult:newImage];
+//    NSAssert([self.delegate conformsToProtocol:@protocol(DMResizerDelegate)], @"Bad delegate %@", self.delegate);
+//    [self.delegate resizer:self finishedResizingWithResult:newImage];
 }
 
 - (void)scrollViewDidZoom:(UIScrollView *)aScrollView {
