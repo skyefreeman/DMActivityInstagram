@@ -29,8 +29,9 @@
     
     for (UIActivityItemProvider *item in activityItems) {
         if ([item isKindOfClass:[UIImage class]]) {
-            if ([self imageIsLargeEnough:(UIImage *)item]) return YES; // has image, of sufficient size.
-            else NSLog(@"DMActivityInstagam: image too small %@",item);
+            return YES;
+//            if ([self imageIsLargeEnough:(UIImage *)item]) return YES; // has image, of sufficient size.
+//            else NSLog(@"DMActivityInstagam: image too small %@",item);
         }
     }
     return NO;
@@ -51,17 +52,17 @@
     }
 }
 
-- (UIViewController *)activityViewController {
-    // resize controller if resize is required.
-    if (!self.resizeController) {
-        self.resizeController = [[DMResizerViewController alloc] initWithImage:self.shareImage andDelegate:self];
-        
-        if ([self imageIsSquare:self.shareImage]) {
-            self.resizeController.skipCropping = YES;
-        }
-    }
-    return self.resizeController;
-}
+//- (UIViewController *)activityViewController {
+//    // resize controller if resize is required.
+//    if (!self.resizeController) {
+//        self.resizeController = [[DMResizerViewController alloc] initWithImage:self.shareImage andDelegate:self];
+//        
+////        if ([self imageIsSquare:self.shareImage]) {
+//        self.resizeController.skipCropping = YES;
+////        }
+//    }
+//    return self.resizeController;
+//}
 
 -(void)resizer:(DMResizerViewController *)resizer finishedResizingWithResult:(UIImage *)image {
     if (image == nil) {
@@ -110,7 +111,6 @@
     
     if (![self.documentController presentOpenInMenuFromBarButtonItem:self.presentFromButton animated:YES]) NSLog(@"couldn't present document interaction controller");
 }
-
 
 - (void)documentInteractionController:(UIDocumentInteractionController *)controller didEndSendingToApplication:(NSString *)application {
     [self activityDidFinish:YES];
