@@ -14,9 +14,9 @@
 
 @protocol DMResizerDelegate <NSObject>
 
+@optional
 -(void)resizer:(DMResizerViewController *)resizer finishedResizingWithResult:(UIImage *)image;
 -(NSArray *)backgroundColors;
-
 @end
 
 

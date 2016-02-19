@@ -39,8 +39,8 @@
     /* iOS 6 sharing, including instagram */
     
     DMActivityInstagram *instagramActivity = [[DMActivityInstagram alloc] init];
-    
     instagramActivity.presentFromButton = (UIBarButtonItem *)sender;
+    
     // this will only be used if the image doesn't need to be resized.
     
     /*instagramActivity.backgroundColors  = @[
